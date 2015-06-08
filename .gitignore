@@ -13,5 +13,5 @@ hs_err_pid*
 
 #JSF Project Ignores
 .classpath
-/.settings/*
 /target/*
+/.settings/*

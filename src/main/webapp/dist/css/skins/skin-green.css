@@ -131,9 +131,3 @@
   border-bottom-right-radius: 2px !important;
   border-bottom-left-radius: 0 !important;
 }
-/* OUR CHANGES */
-.panel-project { border-color: none; }
-.panel-project>.panel-heading { color: #fff; background-color: #374850; border-color: #374850; }
-.panel-project>.panel-footer { padding: 0; border-top: none; background-color: transparent; }
-.delete-project { float: right; font-size: 18px; margin: -5px; display: none; }
-.panel-project:hover .delete-project { display: block; }

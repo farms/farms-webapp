@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<h:head>
+		<meta charset="UTF-8" />
+		<title>FARMS | Login</title>
+		<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport' />
+		<!-- Bootstrap 3.3.4 -->
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<!-- Font Awesome Icons -->
+		<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+		<!-- Theme style -->
+		<link href="dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+		<!-- FARMS -->
+		<link href="dist/css/farms.css" rel="stylesheet" type="text/css" />
+		<!-- iCheck -->
+		<link href="plugins/iCheck/square/green.css" rel="stylesheet" type="text/css" />
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</h:head>
+	<h:body class="login-page">
+		<div class="login-box">
+			<div class="login-logo">
+				<b>F</b>ARMS
+			</div><!-- /.login-logo -->
+			<div class="login-box-body">
+				<div class="row">
+					<div class="col-sm-7">
+						<!-- Custom Tabs -->
+						<div class="nav-tabs-custom farms-login">
+							<ul class="nav nav-tabs">
+								<li class="active"><a href="#login" data-toggle="tab">Entrar</a></li>
+								<li><a href="#register" data-toggle="tab">Registrar</a></li>
+							</ul>
+							<div class="tab-content">
+								<div class="tab-pane active" id="login">
+									<form action="" method="post">
+										<div class="form-group has-feedback">
+											<input type="email" class="form-control input-lg" placeholder="Email"/>
+											<span class="fa fa-envelope form-control-feedback"></span>
+										</div>
+										<div class="form-group has-feedback">
+											<input type="password" class="form-control input-lg" placeholder="Senha"/>
+											<span class="fa fa-lock form-control-feedback"></span>
+										</div>
+										<div class="row">
+											<div class="col-xs-7">    
+												<div class="checkbox icheck">
+													<label style="font-size:16px;">
+														<input type="checkbox" /> Lembrar-me
+													</label>
+												</div>                        
+											</div><!-- /.col -->
+											<div class="col-xs-5">
+												<button type="submit" class="btn btn-success btn-block btn-flat btn-lg">Entrar</button>
+											</div><!-- /.col -->
+										</div>
+									</form>
+
+									<p class="login-box-msg"><a href="#">Esqueceu sua senha?</a></p>
+								</div><!-- /.tab-pane -->
+
+								<div class="tab-pane" id="register">
+									<form action="" method="post">
+										<div class="form-group has-feedback">
+											<input type="text" class="form-control input-lg" placeholder="Nome"/>
+											<span class="fa fa-user form-control-feedback"></span>
+										</div>
+										<div class="form-group has-feedback">
+											<input type="email" class="form-control input-lg" placeholder="Email"/>
+											<span class="fa fa-envelope form-control-feedback"></span>
+										</div>
+										<div class="form-group has-feedback">
+											<input type="password" class="form-control input-lg" placeholder="Senha"/>
+											<span class="fa fa-lock form-control-feedback"></span>
+										</div>
+										<div class="form-group has-feedback">
+											<input type="password" class="form-control input-lg" placeholder="Senha (confirme)"/>
+											<span class="fa fa-lock form-control-feedback"></span>
+										</div>
+										<div class="row">
+											<div class="col-xs-12">
+												<button type="submit" class="btn btn-success btn-block btn-flat btn-lg">Registrar</button>
+											</div><!-- /.col -->
+										</div>
+									</form>
+								</div><!-- /.tab-pane -->
+							</div><!-- /.tab-content -->
+						</div><!-- nav-tabs-custom -->
+						<div class="hidden-xs center-line"> OU </div>
+					</div>
+					<div class="col-sm-5">
+						<div class="social-auth-links text-center">
+							<a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Entrar com o Facebook</a>
+							<a href="#" class="btn btn-block btn-social btn-twitter btn-flat"><i class="fa fa-twitter"></i> Entrar com o Twitter</a>
+							<a href="#" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i> Entrar com o Google+</a>
+							<a href="#" class="btn btn-block btn-social btn-linkedin btn-flat"><i class="fa fa-linkedin"></i> Entrar com o LinkedIn</a>
+						</div><!-- /.social-auth-links -->
+					</div>
+
+				</div>
+
+			</div><!-- /.login-box-body -->
+		</div><!-- /.login-box -->
+
+		<!-- jQuery 2.1.4 -->
+		<script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
+		<!-- Bootstrap 3.3.2 JS -->
+		<script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+		<!-- iCheck -->
+		<script src="plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+		<script>
+			$(function () {
+				$('input').iCheck({
+					checkboxClass: 'icheckbox_square-green',
+					radioClass: 'iradio_square-green',
+	  				increaseArea: '20%' // optional
+				});
+			});
+		</script>
+	</h:body>
+</html>

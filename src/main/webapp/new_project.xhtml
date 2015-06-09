@@ -7,12 +7,14 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 	<h:head>
 		<meta charset="UTF-8" />
-		<title>FARMS | Dashboard</title>
+		<title>FARMS | New Project</title>
 		<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport' />
 		<!-- Bootstrap 3.3.4 -->
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 		<!-- Font Awesome Icons -->
 		<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+		<!-- iCheck for checkboxes and radio inputs -->
+		<link href="plugins/iCheck/square/green.css" rel="stylesheet" type="text/css" />
 		<!-- Theme style -->
 		<link href="dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
 		<link href="dist/css/skins/skin-green.css" rel="stylesheet" type="text/css" />
@@ -226,8 +228,8 @@
 					<ul class="sidebar-menu">
 						<li class="header">NAVEGAÇÃO PRINCIPAL</li>
 						<!-- Optionally, you can add icons to the links -->
-						<li class="active"><a href="dashboard.jsf"><i class='fa fa-dashboard'></i> <span>Visão Geral</span></a></li>
-						<li><a href="project.jsf"><i class='fa fa-files-o'></i> <span>Projetos</span></a></li>
+						<li><a href="dashboard.jsf"><i class='fa fa-dashboard'></i> <span>Visão Geral</span></a></li>
+						<li class="active"><a href="project.jsf"><i class='fa fa-files-o'></i> <span>Projetos</span></a></li>
 						<li><a href="#"><i class='fa fa-pie-chart'></i> <span>Estatísticas</span></a></li>
 						<li class="treeview">
 							<a href="#"><i class='fa fa-cogs'></i> <span>Configurações</span> <i class="fa fa-angle-left pull-right"></i></a>
@@ -246,19 +248,74 @@
 				<!-- Content Header (Page header) -->
 				<section class="content-header">
 					<h1>
-						Visão Geral
-						<small>Alguma descrição caso necessário</small>
+						Novo Projeto
+						<small>Crie uma nova revisão ou mapeamento sistemático</small>
 					</h1>
 					<ol class="breadcrumb">
-						<!-- <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li> -->
-						<li class="active"><i class="fa fa-dashboard"></i> Visão Geral</li>
+						<li><a href="dashboard.jsf"><i class="fa fa-dashboard"></i> Visão Geral</a></li>
+						<li><a href="project.jsf"><i class="fa fa-files-o"></i> Projetos</a></li>
+						<li class="active">Novo Projeto</li>
 					</ol>
 				</section>
 
 				<!-- Main content -->
 				<section class="content">
 
-					<!-- Your Page Content Here -->
+					<div class="row">
+						<!-- left column -->
+						<div class="col-md-12">
+							<!-- general form elements -->
+							<div class="box box-default">
+								<div class="box-header">
+									<!-- <h3 class="box-title">Quick Example</h3> -->
+								</div><!-- /.box-header -->
+								<!-- form start -->
+								<form role="form">
+									<div class="box-body">
+										<div class="row">
+											<div class="col-md-6">
+													<legend>Dados do Projeto</legend>
+												
+													<div class="form-group">
+														<label for="project-title">Título</label>
+														<input type="text" class="form-control" id="project-title" required="true" />
+													</div>
+
+													<div class="form-group">
+														<label for="project-description">Descrição</label>
+														<textarea class="form-control" rows="3" id="project-description" required="true"></textarea>
+													</div>
+
+													<div class="form-group">
+														<label for="project-goals">Objetivos</label>
+														<textarea class="form-control" rows="3" id="project-goals" required="true"></textarea>
+													</div>
+
+													<div class="form-group">
+														<div class="col-md-6">
+															<label>
+																<input type="radio" name="projectType" class="square" checked="true" />
+																Mapeamento Sistemático
+															</label>
+														</div>
+														<div class="col-md-6">
+															<label>
+																<input type="radio" name="projectType" class="square" />
+																Revisão Sistemática
+															</label>
+														</div>
+													</div>
+											</div>
+										</div>
+									</div><!-- /.box-body -->
+
+									<div class="box-footer">
+										<button type="submit" class="btn btn-success">Cadastrar</button>
+									</div>
+								</form>
+							</div><!-- /.box -->
+						</div><!--/.col (left) -->
+					</div>   <!-- /.row -->
 
 				</section><!-- /.content -->
 			</div><!-- /.content-wrapper -->
@@ -284,7 +341,18 @@
 		<script src="plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
 		<!-- FastClick -->
 		<script src="plugins/fastclick/fastclick.min.js" type="text/javascript"></script>
+		<!-- iCheck -->
+		<script src="plugins/iCheck/icheck.min.js" type="text/javascript"></script>
 		<!-- AdminLTE App -->
 		<script src="dist/js/app.min.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(function() {
+				//Flat green color scheme for iCheck
+				$('input[type="checkbox"].square, input[type="radio"].square').iCheck({
+					checkboxClass: 'icheckbox_square-green',
+					radioClass: 'iradio_square-green'
+				});
+			});
+		</script>
 	</h:body>
 </html>

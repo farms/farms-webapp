@@ -13,6 +13,7 @@ import javax.faces.bean.ViewScoped;
 @ManagedBean
 @ViewScoped
 public class ProjectBean {
+	
 	public String getProject() throws IOException {
 		URL url = new URL("http://localhost:8182/project");
 		URLConnection urlConnection = url.openConnection();
@@ -25,4 +26,5 @@ public class ProjectBean {
 		}
 		return new String(bos.toByteArray(), StandardCharsets.UTF_8);
 	}
+	
 }

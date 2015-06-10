@@ -37,56 +37,66 @@
 						<!-- Custom Tabs -->
 						<div class="nav-tabs-custom farms-login">
 							<ul class="nav nav-tabs">
-								<li class="active"><a href="#login" data-toggle="tab">Entrar</a></li>
-								<li><a href="#register" data-toggle="tab">Registrar</a></li>
+								<li class="active"><a href="#login" data-toggle="tab"><h:outputText value=" #{msg['log_in']}" /></a></li>
+								<li><a href="#register" data-toggle="tab"><h:outputText value=" #{msg['register']}" /></a></li>
 							</ul>
 							<div class="tab-content">
 								<div class="tab-pane active" id="login">
-									<form action="" method="post">
+									<h:form>
 										<div class="form-group has-feedback">
-											<input type="email" class="form-control input-lg" placeholder="Email"/>
+											<h:inputText p:type="email" class="form-control input-lg" p:placeholder="Email" p:required="true" />
 											<span class="fa fa-envelope form-control-feedback"></span>
 										</div>
 										<div class="form-group has-feedback">
-											<input type="password" class="form-control input-lg" placeholder="Senha"/>
+											<h:inputSecret type="password" class="form-control input-lg" p:placeholder="Senha" p:required="true" />
 											<span class="fa fa-lock form-control-feedback"></span>
 										</div>
 										<div class="row">
 											<div class="col-xs-7">    
 												<div class="checkbox icheck">
 													<label style="font-size:16px;">
-														<input type="checkbox" /> Lembrar-me
+														<h:selectBooleanCheckbox type="checkbox" /> <h:outputText value=" #{msg['remember_me']}" />
 													</label>
 												</div>                        
 											</div><!-- /.col -->
 											<div class="col-xs-5">
-												<button type="submit" class="btn btn-success btn-block btn-flat btn-lg">Entrar</button>
+												<h:commandButton type="submit" class="btn btn-success btn-block btn-flat btn-lg" value="Entrar" />
 											</div><!-- /.col -->
 										</div>
-									</form>
+									</h:form>
 
-									<p class="login-box-msg"><a href="#">Esqueceu sua senha?</a></p>
+									<p class="login-box-msg"><a href="#"><h:outputText value="#{msg['forgot_password']}" /></a></p>
+									
+									<hr/>
+									<h:form>
+										<h:commandButton action="#{language.changeLanguage('')}"
+											value="English" image="uk.png" />
+										<h:outputText value="&#160;" />
+										<h:commandButton action="#{language.changeLanguage('pt')}"
+											value="Portuguese" image="br.png" />
+									</h:form>
+									
 								</div><!-- /.tab-pane -->
 
 								<div class="tab-pane" id="register">
-									<h:form action="" method="post">
+									<h:form>
 										<div class="form-group has-feedback">
-											<h:inputText type="text" class="form-control input-lg" p:placeholder="Nome"
+											<h:inputText type="text" class="form-control input-lg" p:placeholder="Nome" p:required="true"
 											value="#{loginBean.name}"/>
 											<span class="fa fa-user form-control-feedback"></span>
 										</div>
 										<div class="form-group has-feedback">
-											<h:inputText type="email" class="form-control input-lg" p:placeholder="Email"
+											<h:inputText p:type="email" class="form-control input-lg" p:placeholder="Email" p:required="true"
 											value="#{loginBean.email}"/>
 											<span class="fa fa-envelope form-control-feedback"></span>
 										</div>
 										<div class="form-group has-feedback">
-											<h:inputSecret type="password" class="form-control input-lg" p:placeholder="Senha"
+											<h:inputSecret type="password" class="form-control input-lg" p:placeholder="Senha" p:required="true"
 											value="#{loginBean.password}"/>
 											<span class="fa fa-lock form-control-feedback"></span>
 										</div>
 										<div class="form-group has-feedback">
-											<h:inputSecret type="password" class="form-control input-lg" p:placeholder="Senha (confirme)" 
+											<h:inputSecret type="password" class="form-control input-lg" p:placeholder="Senha (confirme)" p:required="true" 
 											value="#{loginBean.passwordAgain}"/>
 											<span class="fa fa-lock form-control-feedback"></span>
 										</div>

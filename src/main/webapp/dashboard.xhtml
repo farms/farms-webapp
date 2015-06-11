@@ -53,7 +53,7 @@
 									<span class="label label-warning">7</span>
 								</a>
 								<ul class="dropdown-menu">
-									<li class="header">Você tem 7 notificações</li>
+									<li class="header"><h:outputText value="#{msg['have_notifications']}" /></li>
 									<li>
 										<!-- Inner Menu: contains the notifications -->
 										<ul class="menu">
@@ -96,7 +96,7 @@
 											<!-- end notification -->
 										</ul>
 									</li>
-									<li class="footer"><a href="#">Marcar todas como lidas</a></li>
+									<li class="footer"><a href="#"><h:outputText value="#{msg['mark_read_all']}" /></a></li>
 								</ul>
 							</li>
 							<!-- Tasks Menu -->
@@ -107,7 +107,7 @@
 									<span class="label label-danger">9</span>
 								</a>
 								<ul class="dropdown-menu">
-									<li class="header">Você tem 4 tarefas</li>
+									<li class="header"><h:outputText value="#{msg['have_tasks']}" /></li>
 									<li>
 										<!-- Inner menu: contains the tasks -->
 										<ul class="menu">
@@ -171,7 +171,7 @@
 										</ul>
 									</li>
 									<li class="footer">
-										<a href="#">Ver todas as tarefas</a>
+										<a href="#"><h:outputText value="#{msg['all_tasks']}" /></a>
 									</li>
 								</ul>
 							</li>
@@ -187,7 +187,7 @@
 							</li>
 							<!-- Sign Out -->
 							<li>
-								<a href=""><i class="fa fa-sign-out"></i> Sair</a>
+								<a href=""><i class="fa fa-sign-out"></i> <h:outputText value=" #{msg['log_out']}" /></a>
 							</li>
 						</ul>
 					</div>
@@ -214,7 +214,7 @@
 					<!-- search form (Optional) -->
 					<form action="#" method="get" class="sidebar-form">
 						<div class="input-group">
-							<input type="text" name="q" class="form-control" placeholder="Pesquisar..." />
+							<input type="text" name="q" class="form-control" placeholder="#{msg['search']}" />
 							<span class="input-group-btn">
 								<button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
 							</span>
@@ -224,13 +224,13 @@
 
 					<!-- Sidebar Menu -->
 					<ul class="sidebar-menu">
-						<li class="header">NAVEGAÇÃO PRINCIPAL</li>
+						<li class="header"><h:outputText value="#{msg['main_nav']}" /></li>
 						<!-- Optionally, you can add icons to the links -->
-						<li class="active"><a href="dashboard.jsf"><i class='fa fa-dashboard'></i> <span>Visão Geral</span></a></li>
-						<li><a href="project.jsf"><i class='fa fa-files-o'></i> <span>Projetos</span></a></li>
-						<li><a href="#"><i class='fa fa-pie-chart'></i> <span>Estatísticas</span></a></li>
+						<li class="active"><a href="dashboard.jsf"><i class='fa fa-dashboard'></i> <span><h:outputText value="#{msg['dashboard']}" /></span></a></li>
+						<li><a href="project.jsf"><i class='fa fa-files-o'></i> <span><h:outputText value="#{msg['projects']}" /></span></a></li>
+						<li><a href="#"><i class='fa fa-pie-chart'></i> <span><h:outputText value="#{msg['statistics']}" /></span></a></li>
 						<li class="treeview">
-							<a href="#"><i class='fa fa-cogs'></i> <span>Configurações</span> <i class="fa fa-angle-left pull-right"></i></a>
+							<a href="#"><i class='fa fa-cogs'></i> <span><h:outputText value="#{msg['configurations']}" /></span> <i class="fa fa-angle-left pull-right"></i></a>
 							<ul class="treeview-menu">
 								<li><a href="#"><i class="fa fa-circle-thin"></i> Configuração #1</a></li>
 								<li><a href="#"><i class="fa fa-circle-thin"></i> Configuração #2</a></li>
@@ -246,12 +246,12 @@
 				<!-- Content Header (Page header) -->
 				<section class="content-header">
 					<h1>
-						Visão Geral
-						<small>Alguma descrição caso necessário</small>
+						<h:outputText value="#{msg['dashboard']}" />
+						<small><h:outputText value="#{msg['dashboard_title']}" /></small>
 					</h1>
 					<ol class="breadcrumb">
 						<!-- <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li> -->
-						<li class="active"><i class="fa fa-dashboard"></i> Visão Geral</li>
+						<li class="active"><i class="fa fa-dashboard"></i> <h:outputText value=" #{msg['dashboard']}" /></li>
 					</ol>
 				</section>
 
@@ -267,10 +267,10 @@
 			<footer class="main-footer">
 				<!-- To the right -->
 				<div class="pull-right hidden-xs">
-					Versão 1.0 Alfa
+					<h:outputText value="#{msg['version']}" /> 1.0 Alfa
 				</div>
 				<!-- Default to the left -->
-				<strong>Informações de Licença &copy; 2015 <a href="#">FARMS</a>.</strong> Mais detalhes.
+				<strong><h:outputText value="#{msg['license']}" /> &copy; 2015 <a href="#">FARMS</a>.</strong> <h:outputText value=" #{msg['more_details']}" />
 			</footer>
 		</div><!-- ./wrapper -->
 

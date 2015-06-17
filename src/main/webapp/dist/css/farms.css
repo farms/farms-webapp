@@ -219,6 +219,18 @@
 	top: 100px;
 }
 
+/* HEADER NAVBAR */
+.skin-green .main-header .navbar {
+	background: #2ecc71;
+	background: -moz-linear-gradient(left,  #2ecc71 0%, #1abc9c 60%, #16a085 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#2ecc71), color-stop(60%,#1abc9c), color-stop(100%,#16a085));
+	background: -webkit-linear-gradient(left,  #2ecc71 0%,#1abc9c 60%,#16a085 100%);
+	background: -o-linear-gradient(left,  #2ecc71 0%,#1abc9c 60%,#16a085 100%);
+	background: -ms-linear-gradient(left,  #2ecc71 0%,#1abc9c 60%,#16a085 100%);
+	background: linear-gradient(to right,  #2ecc71 0%,#1abc9c 60%,#16a085 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2ecc71', endColorstr='#16a085',GradientType=1 );
+}
+
 /* PROJECT CARDS PANEL */
 .panel-project { border-color: none; }
 .panel-project>.panel-heading { color: #fff; background-color: #374850; border-color: #374850; }

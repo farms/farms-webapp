@@ -1,6 +1,6 @@
 /* LOGIN PAGE */
 .login-page { background: #00a65a;}
-.login-logo { color: #fff; }
+.login-logo a { color: #fff; }
 .nav-tabs-custom.farms-login { border-right: 4px solid #ddd; padding-right: 4%; }
 .nav-tabs-custom.farms-login>.nav-tabs>li.active{border-top-color: #00a65a;}
 .login-box,.register-box{width:600px; margin: 5% auto;}
@@ -229,6 +229,15 @@
 	background: -ms-linear-gradient(left,  #2ecc71 0%,#1abc9c 60%,#16a085 100%);
 	background: linear-gradient(to right,  #2ecc71 0%,#1abc9c 60%,#16a085 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2ecc71', endColorstr='#16a085',GradientType=1 );
+}
+
+/* CONFIGURATION NAV */
+.nav-conf>.nav-pills>li.active>a { border-left-color: #008d4c; }
+.nav-conf>.nav-pills>li.active>a,
+.nav-conf>.nav-pills>li.active>a:focus,
+.nav-conf>.nav-pills>li.active>a:hover {
+	color: #000;
+	background: transparent;
 }
 
 /* PROJECT CARDS PANEL */

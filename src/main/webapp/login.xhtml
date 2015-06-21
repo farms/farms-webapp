@@ -37,63 +37,73 @@
 						<!-- Custom Tabs -->
 						<div class="nav-tabs-custom farms-login">
 							<ul class="nav nav-tabs">
-								<li class="active"><a href="#login" data-toggle="tab">Entrar</a></li>
-								<li><a href="#register" data-toggle="tab">Registrar</a></li>
+								<li class="active"><a href="#login" data-toggle="tab"><h:outputText value=" #{msg['log_in']}" /></a></li>
+								<li><a href="#register" data-toggle="tab"><h:outputText value=" #{msg['register']}" /></a></li>
 							</ul>
 							<div class="tab-content">
 								<div class="tab-pane active" id="login">
-									<form action="" method="post">
+									<h:form>
 										<div class="form-group has-feedback">
-											<input type="email" class="form-control input-lg" placeholder="Email"/>
+											<h:inputText p:type="email" class="form-control input-lg" p:placeholder="Email" p:required="true" />
 											<span class="fa fa-envelope form-control-feedback"></span>
 										</div>
 										<div class="form-group has-feedback">
-											<input type="password" class="form-control input-lg" placeholder="Senha"/>
+											<h:inputSecret type="password" class="form-control input-lg" p:placeholder="#{msg['password']}" p:required="true" />
 											<span class="fa fa-lock form-control-feedback"></span>
 										</div>
 										<div class="row">
 											<div class="col-xs-7">    
 												<div class="checkbox icheck">
 													<label style="font-size:16px;">
-														<input type="checkbox" /> Lembrar-me
+														<h:selectBooleanCheckbox type="checkbox" /> <h:outputText value=" #{msg['remember_me']}" />
 													</label>
 												</div>                        
 											</div><!-- /.col -->
 											<div class="col-xs-5">
-												<button type="submit" class="btn btn-success btn-block btn-flat btn-lg">Entrar</button>
+												<h:commandButton type="submit" class="btn btn-success btn-block btn-flat btn-lg" value="#{msg['log_in']}" />
 											</div><!-- /.col -->
 										</div>
-									</form>
+									</h:form>
 
-									<p class="login-box-msg"><a href="#">Esqueceu sua senha?</a></p>
+									<p class="login-box-msg"><a href="#"><h:outputText value="#{msg['forgot_password']}" /></a></p>
+									
+									<hr/>
+									<h:form>
+										<h:commandButton action="#{language.changeLanguage('')}"
+											value="English" image="dist/img/languages/uk.png" />
+										<h:outputText value="&#160;" />
+										<h:commandButton action="#{language.changeLanguage('pt')}"
+											value="Portuguese" image="dist/img/languages/br.png" />
+									</h:form>
+									
 								</div><!-- /.tab-pane -->
 
 								<div class="tab-pane" id="register">
-									<h:form action="" method="post">
+									<h:form>
 										<div class="form-group has-feedback">
-											<h:inputText type="text" class="form-control input-lg" p:placeholder="Nome"
+											<h:inputText type="text" class="form-control input-lg" p:placeholder="#{msg['name']}" p:required="true"
 											value="#{loginBean.name}"/>
 											<span class="fa fa-user form-control-feedback"></span>
 										</div>
 										<div class="form-group has-feedback">
-											<h:inputText type="email" class="form-control input-lg" p:placeholder="Email"
+											<h:inputText p:type="email" class="form-control input-lg" p:placeholder="Email" p:required="true"
 											value="#{loginBean.email}"/>
 											<span class="fa fa-envelope form-control-feedback"></span>
 										</div>
 										<div class="form-group has-feedback">
-											<h:inputSecret type="password" class="form-control input-lg" p:placeholder="Senha"
+											<h:inputSecret type="password" class="form-control input-lg" p:placeholder="#{msg['password']}" p:required="true"
 											value="#{loginBean.password}"/>
 											<span class="fa fa-lock form-control-feedback"></span>
 										</div>
 										<div class="form-group has-feedback">
-											<h:inputSecret type="password" class="form-control input-lg" p:placeholder="Senha (confirme)" 
+											<h:inputSecret type="password" class="form-control input-lg" p:placeholder="#{msg['password_confirm']}" p:required="true" 
 											value="#{loginBean.passwordAgain}"/>
 											<span class="fa fa-lock form-control-feedback"></span>
 										</div>
 										<div class="row">
 											<div class="col-xs-12">
 											<h:commandButton type="submit" class="btn btn-success btn-block btn-flat btn-lg" 
-											action="#{loginBean.addResearcher}" value="Resgistrar" />
+											action="#{loginBean.addResearcher}" value="#{msg['register']}" />
 												
 											</div><!-- /.col -->
 										</div>
@@ -101,14 +111,14 @@
 								</div><!-- /.tab-pane -->
 							</div><!-- /.tab-content -->
 						</div><!-- nav-tabs-custom -->
-						<div class="hidden-xs center-line"> OU </div>
+						<div class="hidden-xs center-line"> <h:outputText value="#{msg['or']}" /> </div>
 					</div>
 					<div class="col-sm-5">
 						<div class="social-auth-links text-center">
-							<a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Entrar com o Facebook</a>
-							<a href="#" class="btn btn-block btn-social btn-twitter btn-flat"><i class="fa fa-twitter"></i> Entrar com o Twitter</a>
-							<a href="#" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i> Entrar com o Google+</a>
-							<a href="#" class="btn btn-block btn-social btn-linkedin btn-flat"><i class="fa fa-linkedin"></i> Entrar com o LinkedIn</a>
+							<a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> <h:outputText value="#{msg['sign_in_with']}" /> Facebook</a>
+							<a href="#" class="btn btn-block btn-social btn-twitter btn-flat"><i class="fa fa-twitter"></i> <h:outputText value="#{msg['sign_in_with']}" /> Twitter</a>
+							<a href="#" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i> <h:outputText value="#{msg['sign_in_with']}" /> Google+</a>
+							<a href="#" class="btn btn-block btn-social btn-linkedin btn-flat"><i class="fa fa-linkedin"></i> <h:outputText value="#{msg['sign_in_with']}" /> LinkedIn</a>
 						</div><!-- /.social-auth-links -->
 					</div>
 

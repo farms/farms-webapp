@@ -4,6 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:f="http://java.sun.com/jsf/core">
 	<h:head>
 		<meta charset="UTF-8" />
@@ -18,6 +19,8 @@
 		<!-- Theme style -->
 		<link href="dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
 		<link href="dist/css/skins/skin-green.css" rel="stylesheet" type="text/css" />
+		<!-- FARMS -->
+		<link href="dist/css/farms.css" rel="stylesheet" type="text/css" />
 
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -55,7 +58,7 @@
 									<span class="label label-warning">7</span>
 								</a>
 								<ul class="dropdown-menu">
-									<li class="header">Você tem 7 notificações</li>
+									<li class="header"><h:outputText value="#{msg['have_notifications']}" /></li>
 									<li>
 										<!-- Inner Menu: contains the notifications -->
 										<ul class="menu">
@@ -98,7 +101,7 @@
 											<!-- end notification -->
 										</ul>
 									</li>
-									<li class="footer"><a href="#">Marcar todas como lidas</a></li>
+									<li class="footer"><a href="#"><h:outputText value="#{msg['mark_read_all']}" /></a></li>
 								</ul>
 							</li>
 							<!-- Tasks Menu -->
@@ -109,7 +112,7 @@
 									<span class="label label-danger">9</span>
 								</a>
 								<ul class="dropdown-menu">
-									<li class="header">Você tem 4 tarefas</li>
+									<li class="header"><h:outputText value="#{msg['have_tasks']}" /></li>
 									<li>
 										<!-- Inner menu: contains the tasks -->
 										<ul class="menu">
@@ -173,7 +176,7 @@
 										</ul>
 									</li>
 									<li class="footer">
-										<a href="#">Ver todas as tarefas</a>
+										<a href="#"><h:outputText value="#{msg['all_tasks']}" /></a>
 									</li>
 								</ul>
 							</li>
@@ -189,7 +192,7 @@
 							</li>
 							<!-- Sign Out -->
 							<li>
-								<a href=""><i class="fa fa-sign-out"></i> Sair</a>
+								<a href=""><i class="fa fa-sign-out"></i> <h:outputText value=" #{msg['log_out']}" /></a>
 							</li>
 						</ul>
 					</div>
@@ -213,26 +216,15 @@
 						</div>
 					</div>
 
-					<!-- search form (Optional) -->
-					<form action="#" method="get" class="sidebar-form">
-						<div class="input-group">
-							<input type="text" name="q" class="form-control" placeholder="Pesquisar..." />
-							<span class="input-group-btn">
-								<button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
-							</span>
-						</div>
-					</form>
-					<!-- /.search form -->
-
 					<!-- Sidebar Menu -->
 					<ul class="sidebar-menu">
-						<li class="header">NAVEGAÇÃO PRINCIPAL</li>
+						<li class="header"><h:outputText value="#{msg['main_nav']}" /></li>
 						<!-- Optionally, you can add icons to the links -->
-						<li><a href="dashboard.jsf"><i class='fa fa-dashboard'></i> <span>Visão Geral</span></a></li>
-						<li class="active"><a href="project.jsf"><i class='fa fa-files-o'></i> <span>Projetos</span></a></li>
-						<li><a href="#"><i class='fa fa-pie-chart'></i> <span>Estatísticas</span></a></li>
+						<li><a href="dashboard.jsf"><i class='fa fa-dashboard'></i> <span><h:outputText value="#{msg['dashboard']}" /></span></a></li>
+						<li class="active"><a href="project.jsf"><i class='fa fa-files-o'></i> <span><h:outputText value="#{msg['projects']}" /></span></a></li>
+						<li><a href="#"><i class='fa fa-pie-chart'></i> <span><h:outputText value="#{msg['statistics']}" /></span></a></li>
 						<li class="treeview">
-							<a href="#"><i class='fa fa-cogs'></i> <span>Configurações</span> <i class="fa fa-angle-left pull-right"></i></a>
+							<a href="#"><i class='fa fa-cogs'></i> <span><h:outputText value="#{msg['configurations']}" /></span> <i class="fa fa-angle-left pull-right"></i></a>
 							<ul class="treeview-menu">
 								<li><a href="#"><i class="fa fa-circle-thin"></i> Configuração #1</a></li>
 								<li><a href="#"><i class="fa fa-circle-thin"></i> Configuração #2</a></li>
@@ -248,13 +240,13 @@
 				<!-- Content Header (Page header) -->
 				<section class="content-header">
 					<h1>
-						Novo Projeto
-						<small>Crie uma nova revisão ou mapeamento sistemático</small>
+						<h:outputText value="#{msg['new_project']}" />
+						<small><h:outputText value="#{msg['new_project_title']}" /></small>
 					</h1>
 					<ol class="breadcrumb">
-						<li><a href="dashboard.jsf"><i class="fa fa-dashboard"></i> Visão Geral</a></li>
-						<li><a href="project.jsf"><i class="fa fa-files-o"></i> Projetos</a></li>
-						<li class="active">Novo Projeto</li>
+						<li><a href="dashboard.jsf"><i class="fa fa-dashboard"></i> <h:outputText value="#{msg['dashboard']}" /></a></li>
+						<li><a href="project.jsf"><i class="fa fa-files-o"></i> <h:outputText value="#{msg['projects']}" /></a></li>
+						<li class="active"><h:outputText value="#{msg['new_project']}" /></li>
 					</ol>
 				</section>
 
@@ -270,49 +262,314 @@
 									<!-- <h3 class="box-title">Quick Example</h3> -->
 								</div><!-- /.box-header -->
 								<!-- form start -->
-								<form role="form">
+								<h:form role="form">
 									<div class="box-body">
 										<div class="row">
 											<div class="col-md-6">
-													<legend>Dados do Projeto</legend>
-												
-													<div class="form-group">
-														<label for="project-title">Título</label>
-														<input type="text" class="form-control" id="project-title" required="true" />
-													</div>
+												<legend><h:outputText value="#{msg['project_data']}" /></legend>
+											
+												<div class="form-group">
+													<h:outputLabel for="project-title" value="#{msg['title']}" />
+													<h:inputText type="text" class="form-control" id="project-title" p:required="true" />
+												</div>
 
-													<div class="form-group">
-														<label for="project-description">Descrição</label>
-														<textarea class="form-control" rows="3" id="project-description" required="true"></textarea>
-													</div>
+												<div class="form-group">
+													<h:outputLabel for="project-description" value="#{msg['description']}" />
+													<h:inputTextarea class="form-control" rows="3" id="project-description" p:required="true" />
+												</div>
 
-													<div class="form-group">
-														<label for="project-goals">Objetivos</label>
-														<textarea class="form-control" rows="3" id="project-goals" required="true"></textarea>
-													</div>
+												<div class="form-group">
+													<h:outputLabel for="project-goals" value="#{msg['objectives']}" />
+													<h:inputTextarea class="form-control" rows="3" id="project-goals" p:required="true" />
+												</div>
 
-													<div class="form-group">
-														<div class="col-md-6">
-															<label>
-																<input type="radio" name="projectType" class="square" checked="true" />
-																Mapeamento Sistemático
-															</label>
-														</div>
-														<div class="col-md-6">
-															<label>
-																<input type="radio" name="projectType" class="square" />
-																Revisão Sistemática
-															</label>
-														</div>
+												<div class="form-group">
+													<div class="col-md-6">
+														<label>
+															<input type="radio" name="projectType" class="square" checked="true" />
+															<h:outputText value=" #{msg['sys_mapping']}" />
+														</label>
 													</div>
+													<div class="col-md-6">
+														<label>
+															<input type="radio" name="projectType" class="square" />
+															<h:outputText value=" #{msg['sys_review']}" />
+														</label>
+													</div>
+												</div>
+											</div>
+
+											<div class="col-md-6">
+												<legend><h:outputText value="#{msg['institution_data']}" /></legend>
+											
+												<div class="form-group">
+													<h:outputLabel for="institution-name" value="#{msg['name']}" />
+													<h:inputText type="text" class="form-control" id="institution-name" p:required="true" />
+													<p class="help-block"><h:outputText value="#{msg['institution_help']}" /></p>
+												</div>
+
+												<div class="form-group">
+													<h:outputLabel for="institution-country" value="#{msg['country']}" />
+													<h:selectOneMenu class="form-control" id="institution-country">
+														<f:selectItem itemValue="AF" itemLabel="Afghanistan" />
+														<f:selectItem itemValue="AL" itemLabel="Albania" />
+														<f:selectItem itemValue="DZ" itemLabel="Algeria" />
+														<f:selectItem itemValue="AS" itemLabel="American Samoa" />
+														<f:selectItem itemValue="AD" itemLabel="Andorra" />
+														<f:selectItem itemValue="AG" itemLabel="Angola" />
+														<f:selectItem itemValue="AI" itemLabel="Anguilla" />
+														<f:selectItem itemValue="AG" itemLabel="Antigua &amp; Barbuda" />
+														<f:selectItem itemValue="AR" itemLabel="Argentina" />
+														<f:selectItem itemValue="AA" itemLabel="Armenia" />
+														<f:selectItem itemValue="AW" itemLabel="Aruba" />
+														<f:selectItem itemValue="AU" itemLabel="Australia" />
+														<f:selectItem itemValue="AT" itemLabel="Austria" />
+														<f:selectItem itemValue="AZ" itemLabel="Azerbaijan" />
+														<f:selectItem itemValue="BS" itemLabel="Bahamas" />
+														<f:selectItem itemValue="BH" itemLabel="Bahrain" />
+														<f:selectItem itemValue="BD" itemLabel="Bangladesh" />
+														<f:selectItem itemValue="BB" itemLabel="Barbados" />
+														<f:selectItem itemValue="BY" itemLabel="Belarus" />
+														<f:selectItem itemValue="BE" itemLabel="Belgium" />
+														<f:selectItem itemValue="BZ" itemLabel="Belize" />
+														<f:selectItem itemValue="BJ" itemLabel="Benin" />
+														<f:selectItem itemValue="BM" itemLabel="Bermuda" />
+														<f:selectItem itemValue="BT" itemLabel="Bhutan" />
+														<f:selectItem itemValue="BO" itemLabel="Bolivia" />
+														<f:selectItem itemValue="BL" itemLabel="Bonaire" />
+														<f:selectItem itemValue="BA" itemLabel="Bosnia &amp; Herzegovina" />
+														<f:selectItem itemValue="BW" itemLabel="Botswana" />
+														<f:selectItem itemValue="BR" itemLabel="Brazil" p:selected="true" />
+														<f:selectItem itemValue="BC" itemLabel="British Indian Ocean Ter" />
+														<f:selectItem itemValue="BN" itemLabel="Brunei" />
+														<f:selectItem itemValue="BG" itemLabel="Bulgaria" />
+														<f:selectItem itemValue="BF" itemLabel="Burkina Faso" />
+														<f:selectItem itemValue="BI" itemLabel="Burundi" />
+														<f:selectItem itemValue="KH" itemLabel="Cambodia" />
+														<f:selectItem itemValue="CM" itemLabel="Cameroon" />
+														<f:selectItem itemValue="CA" itemLabel="Canada" />
+														<f:selectItem itemValue="IC" itemLabel="Canary Islands" />
+														<f:selectItem itemValue="CV" itemLabel="Cape Verde" />
+														<f:selectItem itemValue="KY" itemLabel="Cayman Islands" />
+														<f:selectItem itemValue="CF" itemLabel="Central African Republic" />
+														<f:selectItem itemValue="TD" itemLabel="Chad" />
+														<f:selectItem itemValue="CD" itemLabel="Channel Islands" />
+														<f:selectItem itemValue="CL" itemLabel="Chile" />
+														<f:selectItem itemValue="CN" itemLabel="China" />
+														<f:selectItem itemValue="CI" itemLabel="Christmas Island" />
+														<f:selectItem itemValue="CS" itemLabel="Cocos Island" />
+														<f:selectItem itemValue="CO" itemLabel="Colombia" />
+														<f:selectItem itemValue="CC" itemLabel="Comoros" />
+														<f:selectItem itemValue="CG" itemLabel="Congo" />
+														<f:selectItem itemValue="CK" itemLabel="Cook Islands" />
+														<f:selectItem itemValue="CR" itemLabel="Costa Rica" />
+														<f:selectItem itemValue="CT" itemLabel="Cote D'Ivoire" />
+														<f:selectItem itemValue="HR" itemLabel="Croatia" />
+														<f:selectItem itemValue="CU" itemLabel="Cuba" />
+														<f:selectItem itemValue="CB" itemLabel="Curacao" />
+														<f:selectItem itemValue="CY" itemLabel="Cyprus" />
+														<f:selectItem itemValue="CZ" itemLabel="Czech Republic" />
+														<f:selectItem itemValue="DK" itemLabel="Denmark" />
+														<f:selectItem itemValue="DJ" itemLabel="Djibouti" />
+														<f:selectItem itemValue="DM" itemLabel="Dominica" />
+														<f:selectItem itemValue="DO" itemLabel="Dominican Republic" />
+														<f:selectItem itemValue="TM" itemLabel="East Timor" />
+														<f:selectItem itemValue="EC" itemLabel="Ecuador" />
+														<f:selectItem itemValue="EG" itemLabel="Egypt" />
+														<f:selectItem itemValue="SV" itemLabel="El Salvador" />
+														<f:selectItem itemValue="GQ" itemLabel="Equatorial Guinea" />
+														<f:selectItem itemValue="ER" itemLabel="Eritrea" />
+														<f:selectItem itemValue="EE" itemLabel="Estonia" />
+														<f:selectItem itemValue="ET" itemLabel="Ethiopia" />
+														<f:selectItem itemValue="FA" itemLabel="Falkland Islands" />
+														<f:selectItem itemValue="FO" itemLabel="Faroe Islands" />
+														<f:selectItem itemValue="FJ" itemLabel="Fiji" />
+														<f:selectItem itemValue="FI" itemLabel="Finland" />
+														<f:selectItem itemValue="FR" itemLabel="France" />
+														<f:selectItem itemValue="GF" itemLabel="French Guiana" />
+														<f:selectItem itemValue="PF" itemLabel="French Polynesia" />
+														<f:selectItem itemValue="FS" itemLabel="French Southern Ter" />
+														<f:selectItem itemValue="GA" itemLabel="Gabon" />
+														<f:selectItem itemValue="GM" itemLabel="Gambia" />
+														<f:selectItem itemValue="GE" itemLabel="Georgia" />
+														<f:selectItem itemValue="DE" itemLabel="Germany" />
+														<f:selectItem itemValue="GH" itemLabel="Ghana" />
+														<f:selectItem itemValue="GI" itemLabel="Gibraltar" />
+														<f:selectItem itemValue="GB" itemLabel="Great Britain" />
+														<f:selectItem itemValue="GR" itemLabel="Greece" />
+														<f:selectItem itemValue="GL" itemLabel="Greenland" />
+														<f:selectItem itemValue="GD" itemLabel="Grenada" />
+														<f:selectItem itemValue="GP" itemLabel="Guadeloupe" />
+														<f:selectItem itemValue="GU" itemLabel="Guam" />
+														<f:selectItem itemValue="GT" itemLabel="Guatemala" />
+														<f:selectItem itemValue="GN" itemLabel="Guinea" />
+														<f:selectItem itemValue="GY" itemLabel="Guyana" />
+														<f:selectItem itemValue="HT" itemLabel="Haiti" />
+														<f:selectItem itemValue="HW" itemLabel="Hawaii" />
+														<f:selectItem itemValue="HN" itemLabel="Honduras" />
+														<f:selectItem itemValue="HK" itemLabel="Hong Kong" />
+														<f:selectItem itemValue="HU" itemLabel="Hungary" />
+														<f:selectItem itemValue="IS" itemLabel="Iceland" />
+														<f:selectItem itemValue="IN" itemLabel="India" />
+														<f:selectItem itemValue="ID" itemLabel="Indonesia" />
+														<f:selectItem itemValue="IA" itemLabel="Iran" />
+														<f:selectItem itemValue="IQ" itemLabel="Iraq" />
+														<f:selectItem itemValue="IR" itemLabel="Ireland" />
+														<f:selectItem itemValue="IM" itemLabel="Isle of Man" />
+														<f:selectItem itemValue="IL" itemLabel="Israel" />
+														<f:selectItem itemValue="IT" itemLabel="Italy" />
+														<f:selectItem itemValue="JM" itemLabel="Jamaica" />
+														<f:selectItem itemValue="JP" itemLabel="Japan" />
+														<f:selectItem itemValue="JO" itemLabel="Jordan" />
+														<f:selectItem itemValue="KZ" itemLabel="Kazakhstan" />
+														<f:selectItem itemValue="KE" itemLabel="Kenya" />
+														<f:selectItem itemValue="KI" itemLabel="Kiribati" />
+														<f:selectItem itemValue="NK" itemLabel="Korea North" />
+														<f:selectItem itemValue="KS" itemLabel="Korea South" />
+														<f:selectItem itemValue="KW" itemLabel="Kuwait" />
+														<f:selectItem itemValue="KG" itemLabel="Kyrgyzstan" />
+														<f:selectItem itemValue="LA" itemLabel="Laos" />
+														<f:selectItem itemValue="LV" itemLabel="Latvia" />
+														<f:selectItem itemValue="LB" itemLabel="Lebanon" />
+														<f:selectItem itemValue="LS" itemLabel="Lesotho" />
+														<f:selectItem itemValue="LR" itemLabel="Liberia" />
+														<f:selectItem itemValue="LY" itemLabel="Libya" />
+														<f:selectItem itemValue="LI" itemLabel="Liechtenstein" />
+														<f:selectItem itemValue="LT" itemLabel="Lithuania" />
+														<f:selectItem itemValue="LU" itemLabel="Luxembourg" />
+														<f:selectItem itemValue="MO" itemLabel="Macau" />
+														<f:selectItem itemValue="MK" itemLabel="Macedonia" />
+														<f:selectItem itemValue="MG" itemLabel="Madagascar" />
+														<f:selectItem itemValue="MY" itemLabel="Malaysia" />
+														<f:selectItem itemValue="MW" itemLabel="Malawi" />
+														<f:selectItem itemValue="MV" itemLabel="Maldives" />
+														<f:selectItem itemValue="ML" itemLabel="Mali" />
+														<f:selectItem itemValue="MT" itemLabel="Malta" />
+														<f:selectItem itemValue="MH" itemLabel="Marshall Islands" />
+														<f:selectItem itemValue="MQ" itemLabel="Martinique" />
+														<f:selectItem itemValue="MR" itemLabel="Mauritania" />
+														<f:selectItem itemValue="MU" itemLabel="Mauritius" />
+														<f:selectItem itemValue="ME" itemLabel="Mayotte" />
+														<f:selectItem itemValue="MX" itemLabel="Mexico" />
+														<f:selectItem itemValue="MI" itemLabel="Midway Islands" />
+														<f:selectItem itemValue="MD" itemLabel="Moldova" />
+														<f:selectItem itemValue="MC" itemLabel="Monaco" />
+														<f:selectItem itemValue="MN" itemLabel="Mongolia" />
+														<f:selectItem itemValue="MS" itemLabel="Montserrat" />
+														<f:selectItem itemValue="MA" itemLabel="Morocco" />
+														<f:selectItem itemValue="MZ" itemLabel="Mozambique" />
+														<f:selectItem itemValue="MM" itemLabel="Myanmar" />
+														<f:selectItem itemValue="NA" itemLabel="Nambia" />
+														<f:selectItem itemValue="NU" itemLabel="Nauru" />
+														<f:selectItem itemValue="NP" itemLabel="Nepal" />
+														<f:selectItem itemValue="AN" itemLabel="Netherland Antilles" />
+														<f:selectItem itemValue="NL" itemLabel="Netherlands (Holland, Europe)" />
+														<f:selectItem itemValue="NV" itemLabel="Nevis" />
+														<f:selectItem itemValue="NC" itemLabel="New Caledonia" />
+														<f:selectItem itemValue="NZ" itemLabel="New Zealand" />
+														<f:selectItem itemValue="NI" itemLabel="Nicaragua" />
+														<f:selectItem itemValue="NE" itemLabel="Niger" />
+														<f:selectItem itemValue="NG" itemLabel="Nigeria" />
+														<f:selectItem itemValue="NW" itemLabel="Niue" />
+														<f:selectItem itemValue="NF" itemLabel="Norfolk Island" />
+														<f:selectItem itemValue="NO" itemLabel="Norway" />
+														<f:selectItem itemValue="OM" itemLabel="Oman" />
+														<f:selectItem itemValue="PK" itemLabel="Pakistan" />
+														<f:selectItem itemValue="PW" itemLabel="Palau Island" />
+														<f:selectItem itemValue="PS" itemLabel="Palestine" />
+														<f:selectItem itemValue="PA" itemLabel="Panama" />
+														<f:selectItem itemValue="PG" itemLabel="Papua New Guinea" />
+														<f:selectItem itemValue="PY" itemLabel="Paraguay" />
+														<f:selectItem itemValue="PE" itemLabel="Peru" />
+														<f:selectItem itemValue="PH" itemLabel="Philippines" />
+														<f:selectItem itemValue="PO" itemLabel="Pitcairn Island" />
+														<f:selectItem itemValue="PL" itemLabel="Poland" />
+														<f:selectItem itemValue="PT" itemLabel="Portugal" />
+														<f:selectItem itemValue="PR" itemLabel="Puerto Rico" />
+														<f:selectItem itemValue="QA" itemLabel="Qatar" />
+														<f:selectItem itemValue="ME" itemLabel="Republic of Montenegro" />
+														<f:selectItem itemValue="RS" itemLabel="Republic of Serbia" />
+														<f:selectItem itemValue="RE" itemLabel="Reunion" />
+														<f:selectItem itemValue="RO" itemLabel="Romania" />
+														<f:selectItem itemValue="RU" itemLabel="Russia" />
+														<f:selectItem itemValue="RW" itemLabel="Rwanda" />
+														<f:selectItem itemValue="NT" itemLabel="St Barthelemy" />
+														<f:selectItem itemValue="EU" itemLabel="St Eustatius" />
+														<f:selectItem itemValue="HE" itemLabel="St Helena" />
+														<f:selectItem itemValue="KN" itemLabel="St Kitts-Nevis" />
+														<f:selectItem itemValue="LC" itemLabel="St Lucia" />
+														<f:selectItem itemValue="MB" itemLabel="St Maarten" />
+														<f:selectItem itemValue="PM" itemLabel="St Pierre &amp; Miquelon" />
+														<f:selectItem itemValue="VC" itemLabel="St Vincent &amp; Grenadines" />
+														<f:selectItem itemValue="SP" itemLabel="Saipan" />
+														<f:selectItem itemValue="SO" itemLabel="Samoa" />
+														<f:selectItem itemValue="AS" itemLabel="Samoa American" />
+														<f:selectItem itemValue="SM" itemLabel="San Marino" />
+														<f:selectItem itemValue="ST" itemLabel="Sao Tome &amp; Principe" />
+														<f:selectItem itemValue="SA" itemLabel="Saudi Arabia" />
+														<f:selectItem itemValue="SN" itemLabel="Senegal" />
+														<f:selectItem itemValue="RS" itemLabel="Serbia" />
+														<f:selectItem itemValue="SC" itemLabel="Seychelles" />
+														<f:selectItem itemValue="SL" itemLabel="Sierra Leone" />
+														<f:selectItem itemValue="SG" itemLabel="Singapore" />
+														<f:selectItem itemValue="SK" itemLabel="Slovakia" />
+														<f:selectItem itemValue="SI" itemLabel="Slovenia" />
+														<f:selectItem itemValue="SB" itemLabel="Solomon Islands" />
+														<f:selectItem itemValue="OI" itemLabel="Somalia" />
+														<f:selectItem itemValue="ZA" itemLabel="South Africa" />
+														<f:selectItem itemValue="ES" itemLabel="Spain" />
+														<f:selectItem itemValue="LK" itemLabel="Sri Lanka" />
+														<f:selectItem itemValue="SD" itemLabel="Sudan" />
+														<f:selectItem itemValue="SR" itemLabel="Suriname" />
+														<f:selectItem itemValue="SZ" itemLabel="Swaziland" />
+														<f:selectItem itemValue="SE" itemLabel="Sweden" />
+														<f:selectItem itemValue="CH" itemLabel="Switzerland" />
+														<f:selectItem itemValue="SY" itemLabel="Syria" />
+														<f:selectItem itemValue="TA" itemLabel="Tahiti" />
+														<f:selectItem itemValue="TW" itemLabel="Taiwan" />
+														<f:selectItem itemValue="TJ" itemLabel="Tajikistan" />
+														<f:selectItem itemValue="TZ" itemLabel="Tanzania" />
+														<f:selectItem itemValue="TH" itemLabel="Thailand" />
+														<f:selectItem itemValue="TG" itemLabel="Togo" />
+														<f:selectItem itemValue="TK" itemLabel="Tokelau" />
+														<f:selectItem itemValue="TO" itemLabel="Tonga" />
+														<f:selectItem itemValue="TT" itemLabel="Trinidad &amp; Tobago" />
+														<f:selectItem itemValue="TN" itemLabel="Tunisia" />
+														<f:selectItem itemValue="TR" itemLabel="Turkey" />
+														<f:selectItem itemValue="TU" itemLabel="Turkmenistan" />
+														<f:selectItem itemValue="TC" itemLabel="Turks &amp; Caicos Is" />
+														<f:selectItem itemValue="TV" itemLabel="Tuvalu" />
+														<f:selectItem itemValue="UG" itemLabel="Uganda" />
+														<f:selectItem itemValue="UA" itemLabel="Ukraine" />
+														<f:selectItem itemValue="AE" itemLabel="United Arab Emirates" />
+														<f:selectItem itemValue="GB" itemLabel="United Kingdom" />
+														<f:selectItem itemValue="US" itemLabel="United States of America" />
+														<f:selectItem itemValue="UY" itemLabel="Uruguay" />
+														<f:selectItem itemValue="UZ" itemLabel="Uzbekistan" />
+														<f:selectItem itemValue="VU" itemLabel="Vanuatu" />
+														<f:selectItem itemValue="VS" itemLabel="Vatican City State" />
+														<f:selectItem itemValue="VE" itemLabel="Venezuela" />
+														<f:selectItem itemValue="VN" itemLabel="Vietnam" />
+														<f:selectItem itemValue="VB" itemLabel="Virgin Islands (Brit)" />
+														<f:selectItem itemValue="VA" itemLabel="Virgin Islands (USA)" />
+														<f:selectItem itemValue="WK" itemLabel="Wake Island" />
+														<f:selectItem itemValue="WF" itemLabel="Wallis &amp; Futana" />
+														<f:selectItem itemValue="YE" itemLabel="Yemen" />
+														<f:selectItem itemValue="ZR" itemLabel="Zaire" />
+														<f:selectItem itemValue="ZM" itemLabel="Zambia" />
+														<f:selectItem itemValue="ZW" itemLabel="Zimbabwe" />
+													</h:selectOneMenu>
+												</div>
 											</div>
 										</div>
 									</div><!-- /.box-body -->
 
 									<div class="box-footer">
-										<button type="submit" class="btn btn-success">Cadastrar</button>
+										<div class="form-group col-sm-offset-4 col-sm-4 col-md-offset-5 col-md-2">
+											<button type="submit" class="btn btn-success btn-lg btn-block"><h:outputText value="#{msg['create']}" /></button>											
+										</div>
 									</div>
-								</form>
+								</h:form>
 							</div><!-- /.box -->
 						</div><!--/.col (left) -->
 					</div>   <!-- /.row -->
@@ -324,10 +581,10 @@
 			<footer class="main-footer">
 				<!-- To the right -->
 				<div class="pull-right hidden-xs">
-					Versão 1.0 Alfa
+					<h:outputText value="#{msg['version']}" /> 1.0 Alfa
 				</div>
 				<!-- Default to the left -->
-				<strong>Informações de Licença &copy; 2015 <a href="#">FARMS</a>.</strong> Mais detalhes.
+				<strong><h:outputText value="#{msg['license']}" /> &copy; 2015 <a href="#">FARMS</a>.</strong> <h:outputText value=" #{msg['more_details']}" />.
 			</footer>
 		</div><!-- ./wrapper -->
 

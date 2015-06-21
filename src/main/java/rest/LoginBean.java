@@ -13,8 +13,6 @@ import javax.faces.bean.RequestScoped;
 import model.Researcher;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 
 @ManagedBean
 @RequestScoped
@@ -85,7 +83,6 @@ public class LoginBean {
 
 
 	public String addResearcher() throws IOException {
-		
 		URL url = new URL("http://localhost:8182/login");
 		HttpURLConnection urlConnection = (HttpURLConnection)url.openConnection();
 		urlConnection.setDoOutput(true);
@@ -98,11 +95,7 @@ public class LoginBean {
 		researcher.setEmail(this.email);
 		researcher.setPassword(this.password);
 		Gson gson = new Gson();
-		JsonElement researcherJson = gson.toJsonTree(researcher);
-		 JsonObject jo = new JsonObject();
-		jo.add("researcher", researcherJson);
-		String json = gson.toJson(jo);
-		System.out.println(json);
+		String json = gson.toJson(researcher);
         os.write(json.getBytes());
         os.flush();
         

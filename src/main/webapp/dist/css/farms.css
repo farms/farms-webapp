@@ -1,6 +1,6 @@
 /* LOGIN PAGE */
 .login-page { background: #00a65a;}
-.login-logo a { color: #fff; }
+.login-logo { color: #fff; }
 .nav-tabs-custom.farms-login { border-right: 4px solid #ddd; padding-right: 4%; }
 .nav-tabs-custom.farms-login>.nav-tabs>li.active{border-top-color: #00a65a;}
 .login-box,.register-box{width:600px; margin: 5% auto;}

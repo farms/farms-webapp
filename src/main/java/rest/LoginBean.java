@@ -7,8 +7,10 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 
 import model.Researcher;
 
@@ -22,6 +24,7 @@ public class LoginBean {
 	private String email;
 	private String password;
 	private String passwordAgain;
+	private String response;
 	
 	
 	
@@ -81,7 +84,20 @@ public class LoginBean {
 
 
 
+	public String getResponse() {
+		return response;
+	}
 
+
+
+
+	public void setResponse(String response) {
+		this.response = response;
+	}
+	
+	
+	
+	
 	public String addResearcher() throws IOException {
 		URL url = new URL("http://localhost:8182/login");
 		HttpURLConnection urlConnection = (HttpURLConnection)url.openConnection();
@@ -100,9 +116,11 @@ public class LoginBean {
         os.flush();
         
         if (urlConnection.getResponseCode() != HttpURLConnection.HTTP_CREATED) {
+        	response = "Arreceba " + urlConnection.getResponseMessage();
             throw new RuntimeException("Failed : HTTP error code : "
                 + urlConnection.getResponseCode());
         }
+        else response = "User added!";
 
         BufferedReader br = new BufferedReader(new InputStreamReader(
                 (urlConnection.getInputStream())));

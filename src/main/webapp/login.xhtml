@@ -102,10 +102,17 @@
 										</div>
 										<div class="row">
 											<div class="col-xs-12">
-											<h:commandButton type="submit" class="btn btn-success btn-block btn-flat btn-lg" 
-											action="#{loginBean.addResearcher}" value="#{msg['register']}" />
+												<h:commandButton class="btn btn-success btn-block btn-flat btn-lg" action="#{loginBean.addResearcher}" value="#{msg['register']}">
+													<f:ajax execute="@form" render="message" />
+												</h:commandButton>
 												
 											</div><!-- /.col -->
+										</div>
+										<div class="row">
+											<div class="col-xs-12">
+												
+											</div>
+											<h:outputText id="message" value="#{loginBean.response}" />
 										</div>
 									</h:form>
 								</div><!-- /.tab-pane -->

@@ -7,16 +7,14 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.context.FacesContext;
 
 import model.Researcher;
 
 import com.google.gson.Gson;
 
-@ManagedBean
+@ManagedBean(name = "loginBean")
 @RequestScoped
 public class LoginBean {
 
@@ -116,11 +114,19 @@ public class LoginBean {
         os.flush();
         
         if (urlConnection.getResponseCode() != HttpURLConnection.HTTP_CREATED) {
-        	response = "Arreceba " + urlConnection.getResponseMessage();
+        	response = "<div class='alert alert-warning alert-dismissable'>" +
+			    			"<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>" +
+			                "<h4><i class='icon fa fa-warning'></i> Could not connect to the server</h4>" +
+			                urlConnection.getResponseMessage() +
+			    		"</div>";
             throw new RuntimeException("Failed : HTTP error code : "
                 + urlConnection.getResponseCode());
         }
-        else response = "User added!";
+        else response = "<div class='alert alert-success alert-dismissable'>" +
+							"<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>" +
+				            "<h4><i class='icon fa fa-check'></i> Success!</h4>" +
+				            "The researcher was registred successfully, now you are good to go." +
+						"</div>";
 
         BufferedReader br = new BufferedReader(new InputStreamReader(
                 (urlConnection.getInputStream())));

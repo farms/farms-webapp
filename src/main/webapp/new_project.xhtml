@@ -229,7 +229,7 @@
 						<li class="treeview">
 							<a href="#"><i class='fa fa-cogs'></i> <span><h:outputText value="#{msg['configurations']}" /></span> <i class="fa fa-angle-left pull-right"></i></a>
 							<ul class="treeview-menu">
-								<li><a href="#"><i class="fa fa-circle-thin"></i> Configuração #1</a></li>
+								<li><a href="configuration.jsf"><i class="fa fa-circle-thin"></i> Configuração #1</a></li>
 								<li><a href="#"><i class="fa fa-circle-thin"></i> Configuração #2</a></li>
 							</ul>
 						</li>
@@ -360,7 +360,7 @@
 										</div>
 
 										<div class="form-group">
-											<h:outputLabel for="institution-country" value="#{msg['country']}" />
+											<h:outputLabel value="#{msg['country']}" />
 											<h:selectOneMenu class="form-control select2" id="institution-country" style="width: 100%;">
 												<f:selectItem itemValue="AF" itemLabel="Afghanistan" />
 												<f:selectItem itemValue="AL" itemLabel="Albania" />
@@ -650,6 +650,7 @@
 		<script src="plugins/iCheck/icheck.min.js" type="text/javascript"></script>
 		<!-- Select2 -->
     	<script src="plugins/select2/select2.full.min.js" type="text/javascript"></script>
+    	<script src="plugins/select2/i18n/pt.js" type="text/javascript"></script>
 		<!-- AdminLTE App -->
 		<script src="dist/js/app.min.js" type="text/javascript"></script>
 		<script type="text/javascript">
@@ -661,7 +662,7 @@
 				});
 				
 				//Initialize Select2 Elements
-		        $(".select2").select2();
+				$(".select2").select2({ language: "#{language.language}" });
 			});
 		</script>
 	</h:body>

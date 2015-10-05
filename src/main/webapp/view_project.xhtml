@@ -1,9 +1,11 @@
 <!DOCTYPE html [
     <!ENTITY copy "&#169;"> 
+    <!ENTITY times "&#215;">
 ]>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:f="http://java.sun.com/jsf/core">
 	<h:head>
 		<meta charset="UTF-8" />
@@ -13,6 +15,10 @@
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 		<!-- Font Awesome Icons -->
 		<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+		<!-- iCheck for checkboxes and radio inputs -->
+		<link href="plugins/iCheck/square/green.css" rel="stylesheet" type="text/css" />
+		<!-- Select2 -->
+    	<link href="plugins/select2/select2.min.css" rel="stylesheet" type="text/css" />
 		<!-- Theme style -->
 		<link href="dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
 		<link href="dist/css/skins/skin-green.css" rel="stylesheet" type="text/css" />
@@ -223,7 +229,7 @@
 						<li class="treeview">
 							<a href="#"><i class='fa fa-cogs'></i> <span><h:outputText value="#{msg['configurations']}" /></span> <i class="fa fa-angle-left pull-right"></i></a>
 							<ul class="treeview-menu">
-								<li><a href="#"><i class="fa fa-circle-thin"></i> Configuração #1</a></li>
+								<li><a href="configuration.jsf"><i class="fa fa-circle-thin"></i> Configuração #1</a></li>
 								<li><a href="#"><i class="fa fa-circle-thin"></i> Configuração #2</a></li>
 							</ul>
 						</li>
@@ -253,14 +259,343 @@
 						<div class="col-md-8">
 							<div class="nav-tabs-custom">
 								<ul class="nav nav-tabs">
-									<li class="active"><a href="#activity" data-toggle="tab">Activity</a></li>
+									<li class="active"><a href="#project-protocol" data-toggle="tab"><h:outputText value="#{msg['project_protocol']}" /></a></li>
 									<li><a href="#timeline" data-toggle="tab">Timeline</a></li>
 									<li><a href="#settings" data-toggle="tab">Settings</a></li>
 								</ul>
 								<div class="tab-content">
-									<div class="active tab-pane" id="activity">
+									<!-- PROJECT PROTOCOL -->
+									<div class="active tab-pane" id="project-protocol">
 							      
-							      		OLÁ
+							      		<h:form role="form">
+							      			<legend><h:outputText value="#{msg['main_question']}" /></legend>
+							      			<div class="row">
+								      			<div class="col-md-11 col-md-offset-1">
+									      			<div class="form-group">
+														<h:outputLabel for="main-description" value="#{msg['description']}" />
+														<h:inputTextarea class="form-control" rows="3" id="main-description" pt:required="true" />
+														<p class="help-block"><h:outputText value="#{msg['main_description_help']}" /></p>
+													</div>
+													
+													<div class="form-group">
+														<h:outputLabel for="main-population" value="#{msg['population']}" />
+														<h:inputTextarea class="form-control" rows="3" id="main-population" pt:required="true" />
+														<p class="help-block"><h:outputText value="#{msg['main_population_help']}" /></p>
+													</div>
+													
+													<div class="form-group">
+														<h:outputLabel for="main-intervention" value="#{msg['intervention']}" />
+														<h:inputTextarea class="form-control" rows="3" id="main-intervention" pt:required="true" />
+														<p class="help-block"><h:outputText value="#{msg['main_intervention_help']}" /></p>
+													</div>
+													
+													<div class="form-group">
+														<h:outputLabel for="main-control" value="#{msg['control']}" />
+														<h:inputTextarea class="form-control" rows="3" id="main-control" pt:required="true" />
+														<p class="help-block"><h:outputText value="#{msg['main_control_help']}" /></p>
+													</div>
+													
+													<div class="form-group">
+														<h:outputLabel for="main-results" value="#{msg['results']}" />
+														<h:inputTextarea class="form-control" rows="3" id="main-results" pt:required="true" />
+														<p class="help-block"><h:outputText value="#{msg['main_results_help']}" /></p>
+													</div>
+													
+													<div class="form-group">
+														<h:outputLabel for="main-app-context" value="#{msg['app_context']}" />
+														<h:inputTextarea class="form-control" rows="3" id="main-app-context" pt:required="true" />
+														<p class="help-block"><h:outputText value="#{msg['main_app_context_help']}" /></p>
+													</div>
+													
+													<div class="form-group">
+														<h:outputLabel for="main-exp-design" value="#{msg['exp_design']}" />
+														<h:inputTextarea class="form-control" rows="3" id="main-exp-design" pt:required="true" />
+														<p class="help-block"><h:outputText value="#{msg['main_exp_design_help']}" /></p>
+													</div>
+												</div>
+											</div>
+											
+											<legend><h:outputText value="#{msg['secondary_question']}" /></legend>
+							      			<div class="row">
+								      			<div class="col-md-11 col-md-offset-1">
+									      			<div class="form-group">
+														<h:outputLabel for="secondary-description" value="#{msg['description']}" />
+														<h:inputTextarea class="form-control" rows="3" id="secondary-description" pt:required="true" />
+														<p class="help-block"><h:outputText value="#{msg['secondary_description_help']}" /></p>
+													</div>
+												</div>
+											</div>
+											
+											<legend><h:outputText value="#{msg['language']}" /></legend>
+							      			<div class="row">
+								      			<div class="col-md-11 col-md-offset-1">
+									      			<div class="form-group">
+														<h:outputLabel value="#{msg['studies_language']}" />
+														<h:selectManyListbox class="form-control select2" id="studies-language" style="width: 100%;" pt:required="true">
+															<f:selectItem itemValue="AB" itemLabel="Abkhaz" />
+															<f:selectItem itemValue="AA" itemLabel="Afar" />
+															<f:selectItem itemValue="AF" itemLabel="Afrikaans" />
+															<f:selectItem itemValue="AK" itemLabel="Akan" />
+															<f:selectItem itemValue="SQ" itemLabel="Albanian" />
+															<f:selectItem itemValue="AM" itemLabel="Amharic" />
+															<f:selectItem itemValue="AR" itemLabel="Arabic" />
+															<f:selectItem itemValue="AN" itemLabel="Aragonese" />
+															<f:selectItem itemValue="HY" itemLabel="Armenian" />
+															<f:selectItem itemValue="AS" itemLabel="Assamese" />
+															<f:selectItem itemValue="AC" itemLabel="Australian" />
+															<f:selectItem itemValue="AV" itemLabel="Avaric" />
+															<f:selectItem itemValue="AE" itemLabel="Avestan" />
+															<f:selectItem itemValue="AY" itemLabel="Aymara" />
+															<f:selectItem itemValue="AZ" itemLabel="Azerbaijani" />
+															<f:selectItem itemValue="BM" itemLabel="Bambara" />
+															<f:selectItem itemValue="BA" itemLabel="Bashkir" />
+															<f:selectItem itemValue="EU" itemLabel="Basque" />
+															<f:selectItem itemValue="BE" itemLabel="Belarusian" />
+															<f:selectItem itemValue="BN" itemLabel="Bengali, Bangla" />
+															<f:selectItem itemValue="BH" itemLabel="Bihari" />
+															<f:selectItem itemValue="BI" itemLabel="Bislama" />
+															<f:selectItem itemValue="BS" itemLabel="Bosnian" />
+															<f:selectItem itemValue="BR" itemLabel="Breton" />
+															<f:selectItem itemValue="BG" itemLabel="Bulgarian" />
+															<f:selectItem itemValue="MY" itemLabel="Burmese" />
+															<f:selectItem itemValue="CA" itemLabel="Catalan" />
+															<f:selectItem itemValue="CH" itemLabel="Chamorro" />
+															<f:selectItem itemValue="CE" itemLabel="Chechen" />
+															<f:selectItem itemValue="NY" itemLabel="Chichewa, Chewa, Nyanja" />
+															<f:selectItem itemValue="ZH" itemLabel="Chinese" />
+															<f:selectItem itemValue="CV" itemLabel="Chuvash" />
+															<f:selectItem itemValue="KW" itemLabel="Cornish" />
+															<f:selectItem itemValue="CO" itemLabel="Corsican" />
+															<f:selectItem itemValue="CR" itemLabel="Cree" />
+															<f:selectItem itemValue="HR" itemLabel="Croatian" />
+															<f:selectItem itemValue="CS" itemLabel="Czech" />
+															<f:selectItem itemValue="DA" itemLabel="Danish" />
+															<f:selectItem itemValue="DV" itemLabel="Divehi, Dhivehi, Maldivian" />
+															<f:selectItem itemValue="NL" itemLabel="Dutch" />
+															<f:selectItem itemValue="DZ" itemLabel="Dzongkha" />
+															<f:selectItem itemValue="EN" itemLabel="English" />
+															<f:selectItem itemValue="EO" itemLabel="Esperanto" />
+															<f:selectItem itemValue="ET" itemLabel="Estonian" />
+															<f:selectItem itemValue="EE" itemLabel="Ewe" />
+															<f:selectItem itemValue="FO" itemLabel="Faroese" />
+															<f:selectItem itemValue="FJ" itemLabel="Fijian" />
+															<f:selectItem itemValue="FI" itemLabel="Finnish" />
+															<f:selectItem itemValue="FR" itemLabel="French" />
+															<f:selectItem itemValue="FF" itemLabel="Fula, Fulah, Pulaar, Pular" />
+															<f:selectItem itemValue="GL" itemLabel="Galician" />
+															<f:selectItem itemValue="LG" itemLabel="Ganda" />
+															<f:selectItem itemValue="KA" itemLabel="Georgian" />
+															<f:selectItem itemValue="DE" itemLabel="German" />
+															<f:selectItem itemValue="EL" itemLabel="Greek (modern)" />
+															<f:selectItem itemValue="GN" itemLabel="Guaraní" />
+															<f:selectItem itemValue="GU" itemLabel="Gujarati" />
+															<f:selectItem itemValue="HT" itemLabel="Haitian, Haitian Creole" />
+															<f:selectItem itemValue="HA" itemLabel="Hausa" />
+															<f:selectItem itemValue="HE" itemLabel="Hebrew (modern)" />
+															<f:selectItem itemValue="HZ" itemLabel="Herero" />
+															<f:selectItem itemValue="HI" itemLabel="Hindi" />
+															<f:selectItem itemValue="HO" itemLabel="Hiri Motu" />
+															<f:selectItem itemValue="HU" itemLabel="Hungarian" />
+															<f:selectItem itemValue="IS" itemLabel="Icelandic" />
+															<f:selectItem itemValue="IO" itemLabel="Ido" />
+															<f:selectItem itemValue="IG" itemLabel="Igbo" />
+															<f:selectItem itemValue="ID" itemLabel="Indonesian" />
+															<f:selectItem itemValue="IA" itemLabel="Interlingua" />
+															<f:selectItem itemValue="IE" itemLabel="Interlingue" />
+															<f:selectItem itemValue="IU" itemLabel="Inuktitut" />
+															<f:selectItem itemValue="IK" itemLabel="Inupiaq" />
+															<f:selectItem itemValue="GA" itemLabel="Irish" />
+															<f:selectItem itemValue="IT" itemLabel="Italian" />
+															<f:selectItem itemValue="JA" itemLabel="Japanese" />
+															<f:selectItem itemValue="JV" itemLabel="Javanese" />
+															<f:selectItem itemValue="KL" itemLabel="Kalaallisut, Greenlandic" />
+															<f:selectItem itemValue="KN" itemLabel="Kannada" />
+															<f:selectItem itemValue="KR" itemLabel="Kanuri" />
+															<f:selectItem itemValue="KS" itemLabel="Kashmiri" />
+															<f:selectItem itemValue="KK" itemLabel="Kazakh" />
+															<f:selectItem itemValue="KM" itemLabel="Khmer" />
+															<f:selectItem itemValue="KI" itemLabel="Kikuyu, Gikuyu" />
+															<f:selectItem itemValue="RW" itemLabel="Kinyarwanda" />
+															<f:selectItem itemValue="RN" itemLabel="Kirundi" />
+															<f:selectItem itemValue="KV" itemLabel="Komi" />
+															<f:selectItem itemValue="KG" itemLabel="Kongo" />
+															<f:selectItem itemValue="KO" itemLabel="Korean" />
+															<f:selectItem itemValue="KU" itemLabel="Kurdish" />
+															<f:selectItem itemValue="KJ" itemLabel="Kwanyama, Kuanyama" />
+															<f:selectItem itemValue="KY" itemLabel="Kyrgyz" />
+															<f:selectItem itemValue="LO" itemLabel="Lao" />
+															<f:selectItem itemValue="LA" itemLabel="Latin" />
+															<f:selectItem itemValue="LV" itemLabel="Latvian" />
+															<f:selectItem itemValue="LI" itemLabel="Limburgish, Limburgan, Limburger" />
+															<f:selectItem itemValue="LN" itemLabel="Lingala" />
+															<f:selectItem itemValue="LT" itemLabel="Lithuanian" />
+															<f:selectItem itemValue="LU" itemLabel="Luba-Katanga" />
+															<f:selectItem itemValue="LB" itemLabel="Luxembourgish, Letzeburgesch" />
+															<f:selectItem itemValue="MK" itemLabel="Macedonian" />
+															<f:selectItem itemValue="MG" itemLabel="Malagasy" />
+															<f:selectItem itemValue="MS" itemLabel="Malay" />
+															<f:selectItem itemValue="ML" itemLabel="Malayalam" />
+															<f:selectItem itemValue="MT" itemLabel="Maltese" />
+															<f:selectItem itemValue="GV" itemLabel="Manx" />
+															<f:selectItem itemValue="MR" itemLabel="Marathi (Marāṭhī)" />
+															<f:selectItem itemValue="MH" itemLabel="Marshallese" />
+															<f:selectItem itemValue="MN" itemLabel="Mongolian" />
+															<f:selectItem itemValue="MI" itemLabel="Māori" />
+															<f:selectItem itemValue="NA" itemLabel="Nauru" />
+															<f:selectItem itemValue="NV" itemLabel="Navajo, Navaho" />
+															<f:selectItem itemValue="NG" itemLabel="Ndonga" />
+															<f:selectItem itemValue="NE" itemLabel="Nepali" />
+															<f:selectItem itemValue="ND" itemLabel="Northern Ndebele" />
+															<f:selectItem itemValue="SE" itemLabel="Northern Sami" />
+															<f:selectItem itemValue="NO" itemLabel="Norwegian" />
+															<f:selectItem itemValue="NB" itemLabel="Norwegian Bokmål" />
+															<f:selectItem itemValue="NN" itemLabel="Norwegian Nynorsk" />
+															<f:selectItem itemValue="II" itemLabel="Nuosu" />
+															<f:selectItem itemValue="OC" itemLabel="Occitan" />
+															<f:selectItem itemValue="OJ" itemLabel="Ojibwe, Ojibwa" />
+															<f:selectItem itemValue="CU" itemLabel="Old Church Slavonic, Church Slavonic, Old Bulgarian" />
+															<f:selectItem itemValue="OR" itemLabel="Oriya" />
+															<f:selectItem itemValue="OM" itemLabel="Oromo" />
+															<f:selectItem itemValue="OS" itemLabel="Ossetian, Ossetic" />
+															<f:selectItem itemValue="PA" itemLabel="Panjabi, Punjabi" />
+															<f:selectItem itemValue="PS" itemLabel="Pashto, Pushto" />
+															<f:selectItem itemValue="FA" itemLabel="Persian (Farsi)" />
+															<f:selectItem itemValue="PL" itemLabel="Polish" />
+															<f:selectItem itemValue="PT" itemLabel="Portuguese" />
+															<f:selectItem itemValue="PI" itemLabel="Pāli" />
+															<f:selectItem itemValue="QU" itemLabel="Quechua" />
+															<f:selectItem itemValue="RO" itemLabel="Romanian" />
+															<f:selectItem itemValue="RM" itemLabel="Romansh" />
+															<f:selectItem itemValue="RU" itemLabel="Russian" />
+															<f:selectItem itemValue="SM" itemLabel="Samoan" />
+															<f:selectItem itemValue="SG" itemLabel="Sango" />
+															<f:selectItem itemValue="SA" itemLabel="Sanskrit (Saṁskṛta)" />
+															<f:selectItem itemValue="SC" itemLabel="Sardinian" />
+															<f:selectItem itemValue="GD" itemLabel="Scottish Gaelic, Gaelic" />
+															<f:selectItem itemValue="SR" itemLabel="Serbian" />
+															<f:selectItem itemValue="SN" itemLabel="Shona" />
+															<f:selectItem itemValue="SD" itemLabel="Sindhi" />
+															<f:selectItem itemValue="SI" itemLabel="Sinhala, Sinhalese" />
+															<f:selectItem itemValue="SK" itemLabel="Slovak" />
+															<f:selectItem itemValue="SL" itemLabel="Slovene" />
+															<f:selectItem itemValue="SO" itemLabel="Somali" />
+															<f:selectItem itemValue="NR" itemLabel="Southern Ndebele" />
+															<f:selectItem itemValue="ST" itemLabel="Southern Sotho" />
+															<f:selectItem itemValue="ES" itemLabel="Spanish" />
+															<f:selectItem itemValue="SU" itemLabel="Sundanese" />
+															<f:selectItem itemValue="SW" itemLabel="Swahili" />
+															<f:selectItem itemValue="SS" itemLabel="Swati" />
+															<f:selectItem itemValue="SV" itemLabel="Swedish" />
+															<f:selectItem itemValue="TL" itemLabel="Tagalog" />
+															<f:selectItem itemValue="TY" itemLabel="Tahitian" />
+															<f:selectItem itemValue="TG" itemLabel="Tajik" />
+															<f:selectItem itemValue="TA" itemLabel="Tamil" />
+															<f:selectItem itemValue="TT" itemLabel="Tatar" />
+															<f:selectItem itemValue="TE" itemLabel="Telugu" />
+															<f:selectItem itemValue="TH" itemLabel="Thai" />
+															<f:selectItem itemValue="BO" itemLabel="Tibetan Standard, Tibetan, Central" />
+															<f:selectItem itemValue="TI" itemLabel="Tigrinya" />
+															<f:selectItem itemValue="TO" itemLabel="Tonga (Tonga Islands)" />
+															<f:selectItem itemValue="TS" itemLabel="Tsonga" />
+															<f:selectItem itemValue="TN" itemLabel="Tswana" />
+															<f:selectItem itemValue="TR" itemLabel="Turkish" />
+															<f:selectItem itemValue="TK" itemLabel="Turkmen" />
+															<f:selectItem itemValue="TW" itemLabel="Twi" />
+															<f:selectItem itemValue="UK" itemLabel="Ukrainian" />
+															<f:selectItem itemValue="UR" itemLabel="Urdu" />
+															<f:selectItem itemValue="UG" itemLabel="Uyghur" />
+															<f:selectItem itemValue="UZ" itemLabel="Uzbek" />
+															<f:selectItem itemValue="VE" itemLabel="Venda" />
+															<f:selectItem itemValue="VI" itemLabel="Vietnamese" />
+															<f:selectItem itemValue="VO" itemLabel="Volapük" />
+															<f:selectItem itemValue="WA" itemLabel="Walloon" />
+															<f:selectItem itemValue="CY" itemLabel="Welsh" />
+															<f:selectItem itemValue="FY" itemLabel="Western Frisian" />
+															<f:selectItem itemValue="WO" itemLabel="Wolof" />
+															<f:selectItem itemValue="XH" itemLabel="Xhosa" />
+															<f:selectItem itemValue="YI" itemLabel="Yiddish" />
+															<f:selectItem itemValue="YO" itemLabel="Yoruba" />
+															<f:selectItem itemValue="ZA" itemLabel="Zhuang, Chuang" />
+															<f:selectItem itemValue="ZU" itemLabel="Zulu" />
+														</h:selectManyListbox>
+														<p class="help-block"><h:outputText value="#{msg['studies_language_help']}" /></p>
+													</div>
+												</div>
+											</div>
+											
+											<legend><h:outputText value="#{msg['selection_criteria']}" /></legend>
+							      			<div class="row">
+								      			<div class="col-md-11 col-md-offset-1">
+									      			<div class="form-group">
+														<h:outputLabel for="selection-criteria-description" value="#{msg['description']}" />
+														<h:inputTextarea class="form-control" rows="3" id="selection-criteria-description" pt:required="true" />
+														<p class="help-block"><h:outputText value="#{msg['selection_criteria_help']}" /></p>
+													</div>
+													
+													<div class="form-group">
+														<div class="col-md-6">
+															<label>
+																<input type="radio" name="criteriaType" class="square" />
+																<h:outputText value=" #{msg['inclusion']}" />
+															</label>
+														</div>
+														<div class="col-md-6">
+															<label>
+																<input type="radio" name="criteriaType" class="square" />
+																<h:outputText value=" #{msg['exclusion']}" />
+															</label>
+														</div>
+													</div>
+												</div>
+											</div>
+											
+											<legend><h:outputText value="#{msg['search_engine']}" /></legend>
+							      			<div class="row">
+								      			<div class="col-md-11 col-md-offset-1">
+									      			<div class="form-group">
+														<h:outputLabel value="#{msg['databases']}" />
+														<h:selectManyListbox class="form-control select2" id="database-name" style="width: 100%;" pt:required="true">
+															<f:selectItem itemValue="periodicoscapes" itemLabel="Periódicos CAPES" />
+															<f:selectItem itemValue="scielo" itemLabel="SciELO - Scientific Electronic Library Online" />
+														</h:selectManyListbox>
+														<p class="help-block">
+															<h:outputText value="#{msg['databases_help']}" />
+															. <a data-toggle="modal" href='#database-request'><h:outputText value="#{msg['add_database_message']}" /></a>
+														</p>
+													</div>
+												</div>
+											</div>
+							      		</h:form>
+							      		
+							      		<div class="modal fade" id="database-request">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+														<h4 class="modal-title"><h:outputText value="#{msg['database_request']}" /></h4>
+													</div>
+													<h:form role="form">
+														<div class="modal-body">
+															<p class="text-justify"><h:outputText value="#{msg['database_request_explanation']}" /></p>
+															
+															<div class="form-group">
+																<h:outputLabel for="database-request-name" value="#{msg['name']}" />
+																<h:inputText type="text" class="form-control" id="database-request-name" pt:required="true" />
+															</div>
+															<div class="form-group">
+																<h:outputLabel for="database-request-url" value="#{msg['url']}" />
+																<h:inputText pt:type="url" class="form-control" id="database-request-url" pt:placeholder="#{msg['optional']}" />
+																<p class="help-block"><h:outputText value="#{msg['database_request_url_help']}" /></p>
+															</div>
+														</div>
+														<div class="modal-footer">
+															<button type="button" class="btn btn-default pull-left" data-dismiss="modal"><h:outputText value="#{msg['cancel']}" /></button>
+															<button type="submit" class="btn btn-success"><h:outputText value="#{msg['request']}" /></button>
+														</div>
+													</h:form>
+												</div><!-- /.modal-content -->
+											</div><!-- /.modal-dialog -->
+										</div><!-- /.modal -->
 							      
 							    	</div><!-- /.tab-pane -->
 									
@@ -294,7 +629,7 @@
 											<i class="fa fa-download bg-gray"></i>
 											<div class="timeline-item">
 												<span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
-												<h3 class="timeline-header no-border"><a href="#">Sarah Young</a> downloaded 7 articles</h3>
+												<h3 class="timeline-header no-border"><a href="#">Carmen Miranda</a> downloaded 7 articles</h3>
 											</div>
 				                      	</li>
 										<!-- END timeline item -->
@@ -303,7 +638,7 @@
 											<i class="fa fa-user bg-gray"></i>
 											<div class="timeline-item">
 												<span class="time"><i class="fa fa-clock-o"></i> 5 mins ago</span>
-												<h3 class="timeline-header no-border"><a href="#">Sarah Young</a> was added to the project by <a href="#">Tom Jobim</a></h3>
+												<h3 class="timeline-header no-border"><a href="#">Carmen Miranda</a> was added to the project by <a href="#">Tom Jobim</a></h3>
 											</div>
 										</li>
 										<!-- END timeline item -->
@@ -355,11 +690,23 @@
 		<script src="plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
 		<!-- FastClick -->
 		<script src="plugins/fastclick/fastclick.min.js" type="text/javascript"></script>
+		<!-- iCheck -->
+		<script src="plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+		<!-- Select2 -->
+    	<script src="plugins/select2/select2.full.min.js" type="text/javascript"></script>
+    	<script src="plugins/select2/i18n/pt.js" type="text/javascript"></script>
 		<!-- AdminLTE App -->
 		<script src="dist/js/app.min.js" type="text/javascript"></script>
 		<script type="text/javascript">
 			$(function () {
-			  $('[data-toggle="tooltip"]').tooltip();
+				//Flat green color scheme for iCheck
+				$('input[type="checkbox"].square, input[type="radio"].square').iCheck({
+					checkboxClass: 'icheckbox_square-green',
+					radioClass: 'iradio_square-green'
+				});
+				
+				//Initialize Select2 Elements
+		        $(".select2").select2({ language: "#{language.language}" });
 			});
 		</script>
 	</h:body>

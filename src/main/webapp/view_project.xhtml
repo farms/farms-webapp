@@ -273,49 +273,49 @@
 								      			<div class="col-md-11 col-md-offset-1">
 									      			<div class="form-group">
 														<h:outputLabel for="main-description" value="#{msg['description']}" />
-														<h:inputTextarea class="form-control" rows="3" id="main-description" pt:required="true" />
+														<h:inputTextarea class="form-control" rows="3" id="main-description" />
 														<p class="help-block"><h:outputText value="#{msg['main_description_help']}" /></p>
 													</div>
 													
 													<div class="form-group">
 														<h:outputLabel for="main-population" value="#{msg['population']}" />
-														<h:inputTextarea class="form-control" rows="3" id="main-population" pt:required="true" />
+														<h:inputTextarea class="form-control" rows="3" id="main-population" />
 														<p class="help-block"><h:outputText value="#{msg['main_population_help']}" /></p>
 													</div>
 													
 													<div class="form-group">
 														<h:outputLabel for="main-intervention" value="#{msg['intervention']}" />
-														<h:inputTextarea class="form-control" rows="3" id="main-intervention" pt:required="true" />
+														<h:inputTextarea class="form-control" rows="3" id="main-intervention" />
 														<p class="help-block"><h:outputText value="#{msg['main_intervention_help']}" /></p>
 													</div>
 													
 													<div class="form-group">
 														<h:outputLabel for="main-control" value="#{msg['control']}" />
-														<h:inputTextarea class="form-control" rows="3" id="main-control" pt:required="true" />
+														<h:inputTextarea class="form-control" rows="3" id="main-control" />
 														<p class="help-block"><h:outputText value="#{msg['main_control_help']}" /></p>
 													</div>
 													
 													<div class="form-group">
 														<h:outputLabel for="main-results" value="#{msg['results']}" />
-														<h:inputTextarea class="form-control" rows="3" id="main-results" pt:required="true" />
+														<h:inputTextarea class="form-control" rows="3" id="main-results" />
 														<p class="help-block"><h:outputText value="#{msg['main_results_help']}" /></p>
 													</div>
 													
 													<div class="form-group">
 														<h:outputLabel for="main-app-context" value="#{msg['app_context']}" />
-														<h:inputTextarea class="form-control" rows="3" id="main-app-context" pt:required="true" />
+														<h:inputTextarea class="form-control" rows="3" id="main-app-context" />
 														<p class="help-block"><h:outputText value="#{msg['main_app_context_help']}" /></p>
 													</div>
 													
 													<div class="form-group">
 														<h:outputLabel for="main-exp-design" value="#{msg['exp_design']}" />
-														<h:inputTextarea class="form-control" rows="3" id="main-exp-design" pt:required="true" />
+														<h:inputTextarea class="form-control" rows="3" id="main-exp-design" />
 														<p class="help-block"><h:outputText value="#{msg['main_exp_design_help']}" /></p>
 													</div>
 												</div>
 											</div>
 											
-											<legend><h:outputText value="#{msg['secondary_question']}" /></legend>
+											<legend><h:outputText value="#{msg['secondary_question']}" /> (MANY)</legend>
 							      			<div class="row">
 								      			<div class="col-md-11 col-md-offset-1">
 									      			<div class="form-group">
@@ -523,7 +523,7 @@
 												</div>
 											</div>
 											
-											<legend><h:outputText value="#{msg['selection_criteria']}" /></legend>
+											<legend><h:outputText value="#{msg['selection_criteria']}" /> (MANY)</legend>
 							      			<div class="row">
 								      			<div class="col-md-11 col-md-offset-1">
 									      			<div class="form-group">
@@ -549,24 +549,49 @@
 												</div>
 											</div>
 											
-											<legend><h:outputText value="#{msg['search_engine']}" /></legend>
+											<legend><h:outputText value="#{msg['search_engine']}" /> (MANY)</legend>
 							      			<div class="row">
 								      			<div class="col-md-11 col-md-offset-1">
 									      			<div class="form-group">
 														<h:outputLabel value="#{msg['databases']}" />
-														<h:selectManyListbox class="form-control select2" id="database-name" style="width: 100%;" pt:required="true">
+														<h:selectOneMenu class="form-control select2" id="database-name" style="width: 100%;" pt:required="true">
 															<f:selectItem itemValue="periodicoscapes" itemLabel="Periódicos CAPES" />
 															<f:selectItem itemValue="scielo" itemLabel="SciELO - Scientific Electronic Library Online" />
-														</h:selectManyListbox>
+														</h:selectOneMenu>
 														<p class="help-block">
 															<h:outputText value="#{msg['databases_help']}" />
 															. <a data-toggle="modal" href='#database-request'><h:outputText value="#{msg['add_database_message']}" /></a>
 														</p>
 													</div>
+													
+													<div class="form-group">
+														<h:outputLabel for="base-use-criteria" value="#{msg['base_use_criteria']}" />
+														<h:inputTextarea class="form-control" rows="3" id="base-use-criteria" pt:required="true" />
+														<p class="help-block"><h:outputText value="#{msg['base_use_criteria_help']}" /></p>
+													</div>
+												</div>
+											</div>
+											
+											<legend><h:outputText value="#{msg['query_definitions']}" /></legend>
+							      			<div class="row">
+								      			<div class="col-md-11 col-md-offset-1">
+									      			<div class="form-group">
+														<h:outputLabel for="standard-query" value="#{msg['standard_query']}" />
+														<h:inputTextarea class="form-control" rows="3" id="standard-query" />
+														<p class="help-block"><h:outputText value="#{msg['standard_query_help']}" /></p>
+													</div>
+													
+													<div class="form-group">
+														<h:outputLabel for="search-keyword" value="#{msg['search_keyword']}" />
+														<h:selectManyListbox class="form-control select2-tag" id="search-keyword" style="width: 100%;" pt:required="true">
+														</h:selectManyListbox>
+														<p class="help-block"><h:outputText value="#{msg['search_keyword_help']}" /></p>
+													</div>
 												</div>
 											</div>
 							      		</h:form>
 							      		
+							      		<!-- DATABASE REQUEST MODAL FORM CONTENT -->
 							      		<div class="modal fade" id="database-request">
 											<div class="modal-dialog">
 												<div class="modal-content">
@@ -707,6 +732,11 @@
 				
 				//Initialize Select2 Elements
 		        $(".select2").select2({ language: "#{language.language}" });
+		        $(".select2-tag").select2({
+		        	language: "#{language.language}",
+		        	tags: true,
+		        	tokenSeparators: [',', ';']
+		        });
 			});
 		</script>
 	</h:body>

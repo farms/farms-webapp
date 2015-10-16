@@ -1,5 +1,7 @@
 package model;
 
+import java.util.List;
+
 import javax.faces.component.FacesComponent;
 import javax.faces.component.UIData;
 import javax.faces.component.UINamingContainer;

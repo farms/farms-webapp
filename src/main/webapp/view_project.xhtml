@@ -40,9 +40,9 @@
 				<!-- Logo -->
 				<a href="dashboard.jsf" class="logo">
 					<!-- mini logo for sidebar mini 50x50 pixels -->
-					<span class="logo-mini"><b>F</b></span>
+					<span class="logo-mini"><img src="dist/img/logo_farms_mini.png" alt="Logo FARMS" class="img-responsive" /></span>
 					<!-- logo for regular state and mobile devices -->
-					<span class="logo-lg"><b>F</b>ARMS</span>
+					<span class="logo-lg"><img src="dist/img/logo_farms.png" alt="Logo FARMS" class="img-responsive" /></span>
 				</a>
 
 				<!-- Header Navbar -->
@@ -261,16 +261,16 @@
 							<div class="nav-tabs-custom">
 								<ul class="nav nav-tabs">
 									<li class="active"><a href="#project-protocol" data-toggle="tab"><h:outputText value="#{msg['project_protocol']}" /></a></li>
-									<li><a href="#timeline" data-toggle="tab">Timeline</a></li>
-									<li><a href="#settings" data-toggle="tab">Settings</a></li>
+									<li><a href="#timeline" data-toggle="tab">Identificar Estudos</a></li>
+									<li><a href="#settings" data-toggle="tab">Seleção de Estudos</a></li>
 								</ul>
 								<div class="tab-content">
 									<!-- PROJECT PROTOCOL -->
 									<div class="active tab-pane" id="project-protocol">
 									
-										<h:form>
+										<!-- <h:form>
 										    <my:dynamicFieldList value="#{bean.fields}" />
-										</h:form>
+										</h:form>-->
 							      
 							      		<h:form role="form">
 							      			<legend><h:outputText value="#{msg['main_question']}" /></legend>
@@ -640,6 +640,43 @@
 							</div><!-- /.nav-tabs-custom -->
 						</div><!-- /.col -->
 										
+						<div class="col-md-4">
+							<div class="box box-success">
+								<div class="box-header with-border">
+									<h3 class="box-title">Membros do Projeto</h3>
+								</div><!-- /.box-header -->
+								<div class="box-body">
+									
+									<div class="row">
+										<div class="col-md-3">
+											<a href="#" class="thumbnail">
+												<img class="img-responsive img-circle" src="dist/img/user8-128x128.jpg" alt="User profile picture" />
+											</a>
+										</div>
+										<div class="col-md-3">
+											<a href="#" class="thumbnail">
+												<img class="img-responsive img-circle" src="dist/img/user6-128x128.jpg" alt="User profile picture" />
+											</a>
+										</div>
+										<div class="col-md-3">
+											<a href="#" class="thumbnail">
+												<img class="img-responsive img-circle" src="dist/img/user4-128x128.jpg" alt="User profile picture" />
+											</a>
+										</div>
+										<div class="col-md-3">
+											<a href="#" class="thumbnail">
+												<img class="img-responsive img-circle" src="dist/img/user3-128x128.jpg" alt="User profile picture" />
+											</a>
+										</div>
+									</div>
+								
+								</div>
+								<div class="box-footer">
+									<button type="button" class="btn btn-large btn-block btn-success">Adicionar Pesquisadores</button>
+								</div>
+							</div>
+						</div>
+						
 						<div class="col-md-4">
 							<div class="box box-default">
 								<div class="box-header with-border">

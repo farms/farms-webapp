@@ -1,9 +1,10 @@
 /* LOGIN PAGE */
 .login-page { background: #00a65a }
-.login-logo { color: #fff }
+.login-logo { margin-bottom: 0 }
+.login-logo img { margin: 0 auto }
 .nav-tabs-custom.farms-login { border-right: 4px solid #ddd; padding-right: 4% }
 .nav-tabs-custom.farms-login>.nav-tabs>li.active{border-top-color: #00a65a }
-.login-box,.register-box{width:600px; margin: 5% auto }
+.login-box,.register-box{width:600px; margin: 2% auto }
 .login-box-body {
 	border-radius: 10px;
 	box-shadow: rgb(0, 141, 77) 1px 1px,
